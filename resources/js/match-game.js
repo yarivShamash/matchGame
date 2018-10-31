@@ -10,7 +10,24 @@ var MatchGame = {};
  */
 
 MatchGame.generateCardValues = function () {
+  var numberArray = [];
 
+  for (var i = 1; i<=8; i++){
+    numberArray.push(i, i);
+  };
+
+  var randomizedNumberArray = [];
+  
+  var numberArrayLength = numberArray.length();
+
+  while (var j = 1, j <= numberArrayLength){
+    function randomNumber(){
+      randomizedNumberArray.push(Math.floor(Math.random() * 8));
+    };
+    console.log(randomizedNumberArray);
+    j++;
+  };
+              //got stuck here at stage 26 :(
 };
 
 /*
