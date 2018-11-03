@@ -16,17 +16,19 @@ MatchGame.generateCardValues = function () {
     numberArray.push(i, i);
   };
 
-  var numberArrayLength = numberArray.length;
+  var numberArrayLength = numberArray.length, randomPosition, ranPosValue;
 
-  //the while loop below randomizes the numberArray
+
   while (--numberArrayLength > 0){
-    var randomPosition = Math.floor(Math.random() * numberArrayLength);
-    var randomizesedArray = [];
-    var randomizedValue = numberArray[randomPosition]; // this var retrievs the value form the random position
-    randomizesedArray.push(randomizedValue);
-    numberArray.splice(randomPosition,1);
+    
+    var randomPosition = Math.floor(Math.random() * (numberArrayLength + 1)); //this generates a random number between 0 to the length of the numberArray
+    ranPosValue = numberArray[randomPosition]; //this stores the vale at the random position in this variable
+    numberArray[randomPosition] = numberArray[numberArrayLength];//this swaps the values from the random position and the current position
+    numberArray[numberArrayLength] = ranPosValue; //this stores the vale from the random positino in the current positinos
+
   };
-  console.log(randomizesedArray);// still no more than one number on the array
+  console.log(randomizedNumberArray);
+            //got stuck here at stage 26 :(
 };
 
 /*
