@@ -17,11 +17,10 @@ MatchGame.generateCardValues = function () {
   };
 
   var numberArrayLength = numberArray.length;
-
+  var randomizesedArray = []; //this var should have been outside the loop(step 26). once it's here the shuffle works.
   //the while loop below randomizes the numberArray
   while (--numberArrayLength > 0){
     var randomPosition = Math.floor(Math.random() * numberArrayLength);
-    var randomizesedArray = [];
     var randomizedValue = numberArray[randomPosition]; // this var retrievs the value form the random position
     randomizesedArray.push(randomizedValue);
     numberArray.splice(randomPosition,1);
