@@ -29,9 +29,11 @@ MatchGame.generateCardValues = function () {
 
 $(document).ready(function(){
 
-  $game = $('#game')
-  $cardValues = MatchGame.generateCardValues()
+  $game = $('#game');
+  var cardValues = MatchGame.generateCardValues();
   
+});
+
   /* Converts card values to jQuery card objects and adds them to the supplied game object.*/
   MatchGame.renderCards = function(cardValues, $game) {
     var cardColor = ["hsl(25, 85%, 65%)", "hsl(55, 85%, 65%)", "hsl(90, 85%, 65%)", "hsl(160, 85%, 65%)", "hsl(220, 85%, 65%)", "hsl(265, 85%, 65%)", "hsl(310, 85%, 65%)", "hsl(360, 85%, 65%)"]
@@ -60,4 +62,3 @@ $(document).ready(function(){
   MatchGame.flipCard = function($card, $game) {
 
   };
-});
