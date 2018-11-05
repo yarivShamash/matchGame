@@ -34,7 +34,7 @@ $(document).ready(function(){
     
     $("#game").empty();
 
-    var R_A_length = randomizesedArray.length;
+    var R_A_length = randomizesedArray.length; //when running "MatchGame.renderCards();" on the console I get "Uncaught ReferenceError: randomizesedArray is not defined" direction me to line 37
     while(--R_A_length>=0){
       var z = 0;
       $("game.row").after('<div class="card' + z + 'col-xs-3"></div>');
