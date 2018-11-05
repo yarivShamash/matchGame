@@ -28,11 +28,15 @@ MatchGame.generateCardValues = function () {
 };
 
 $(document).ready(function(){
+
+  $game = $('#game')
+  $cardValues = MatchGame.generateCardValues()
+  
   /* Converts card values to jQuery card objects and adds them to the supplied game object.*/
   MatchGame.renderCards = function(cardValues, $game) {
     var cardColor = ["hsl(25, 85%, 65%)", "hsl(55, 85%, 65%)", "hsl(90, 85%, 65%)", "hsl(160, 85%, 65%)", "hsl(220, 85%, 65%)", "hsl(265, 85%, 65%)", "hsl(310, 85%, 65%)", "hsl(360, 85%, 65%)"]
     
-    $("#game").empty();
+    $game.empty();
 
     var R_A_length = randomizesedArray.length; //when running "MatchGame.renderCards();" on the console I get "Uncaught ReferenceError: randomizesedArray is not defined" direction me to line 37
     while(--R_A_length>=0){
