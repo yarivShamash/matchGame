@@ -29,29 +29,26 @@ MatchGame.generateCardValues = function () {
 
 $(document).ready(function(){
 
-  $game = $('#game');
-  var cardValues = MatchGame.generateCardValues();
+ 
   
 });
 
   /* Converts card values to jQuery card objects and adds them to the supplied game object.*/
   MatchGame.renderCards = function(cardValues, $game) {
-    var cardColor = ["hsl(25, 85%, 65%)", "hsl(55, 85%, 65%)", "hsl(90, 85%, 65%)", "hsl(160, 85%, 65%)", "hsl(220, 85%, 65%)", "hsl(265, 85%, 65%)", "hsl(310, 85%, 65%)", "hsl(360, 85%, 65%)"]
-    
+    var $game = $('#game');
     $game.empty();
-
-    var R_A_length = randomizesedArray.length; //when running "MatchGame.renderCards();" on the console I get "Uncaught ReferenceError: randomizesedArray is not defined" direction me to line 37
-    while(--R_A_length>=0){
-      var z = 0;
-      $("game.row").after('<div class="card' + z + 'col-xs-3"></div>');
-      $(".card" + z).data("value",randomizesedArray[z]);
-      $(".card" + z).data("flipped", false);
-      $(".card" + z).data("color",cardColor[randomizesedArray[z]-1]);
-      z++;
-    }
+    var cardColor = ["hsl(25, 85%, 65%)", "hsl(55, 85%, 65%)", "hsl(90, 85%, 65%)", "hsl(160, 85%, 65%)", "hsl(220, 85%, 65%)", "hsl(265, 85%, 65%)", "hsl(310, 85%, 65%)", "hsl(360, 85%, 65%)"]
+    for (var j = 0; j < cardValues.length; j++){
+      var $card = $('<div class="card' + j + ' col-xs-3"></div>');
+      $card.data('cValue', randomizesedArray[j]);
+      $card.data('flipped', false);
+      $card.data('color', cardColor[randomizesedArray[j]]);
+      $game.append($card);      
+    };
+ 
   };
 
-  
+  // the call for the above function will be MatchGame.renderCards(MatchGame.generateCardValues(), $game); returns "$game is not defined"
 
 
   /*
